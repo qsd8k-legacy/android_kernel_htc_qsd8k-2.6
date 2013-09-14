@@ -31,10 +31,12 @@
 #include <linux/tick.h>
 #include <linux/timer.h>
 #include <linux/workqueue.h>
+#include <linux/module.h>
 #include <linux/moduleparam.h>
 #include <asm/cputime.h>
 #include <linux/earlysuspend.h>
 
+#define cputime64_sub(__a, __b) ((__a) - (__b))
 
 /******************** Tunable parameters: ********************/
 
@@ -43,7 +45,7 @@
  * towards the ideal frequency and slower after it has passed it. Similarly,
  * lowering the frequency towards the ideal frequency is faster than below it.
  */
-#define DEFAULT_AWAKE_IDEAL_FREQ 320000
+#define DEFAULT_AWAKE_IDEAL_FREQ 600000
 static unsigned int awake_ideal_freq;
 
 /*
@@ -101,7 +103,7 @@ static unsigned long down_rate_us;
  * The frequency to set when waking up from sleep.
  * When sleep_ideal_freq=0 this will have no effect.
  */
-#define DEFAULT_SLEEP_WAKEUP_FREQ 99999999
+#define DEFAULT_SLEEP_WAKEUP_FREQ 600000
 static unsigned int sleep_wakeup_freq;
 
 /*
