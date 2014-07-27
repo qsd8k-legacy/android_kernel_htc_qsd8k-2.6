@@ -112,6 +112,20 @@ static unsigned int sleep_wakeup_freq;
 #define DEFAULT_SAMPLE_RATE_JIFFIES 2
 static unsigned int sample_rate_jiffies;
 
+/*
+ * Boost enabled
+ */
+#define DEFAULT_BOOST_ENABLED 1
+static unsigned int boost_enabled;
+
+/*
+ * Boost pulse
+ */
+#define DEFAULT_BOOST_PULSE 500000
+#define MAX_BOOST_PULSE 5000000
+static unsigned long boost_pulse;
+static u64 boost_pulse_time;
+
 
 /*************** End of tunables ***************/
 
