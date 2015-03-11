@@ -58,3 +58,4 @@ obj-$(CONFIG_VP_A1026)		+= a1026.o
 obj-$(CONFIG_SENSORS_BMA150_SPI)+= bma150_spi.o
 obj-$(CONFIG_MSM_720P_CORE)	+= video_core/720p/
 
+obj-$(CONFIG_UID_CPUTIME) += uid_cputime.o
